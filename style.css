@@ -1,0 +1,207 @@
+/* =============================================
+   RESTAURANT MENU - CSS STYLES
+   ============================================= */
+
+/* CSS Variables / Design System */
+:root {
+  --color-background: hsl(210, 25%, 96%);
+  --color-foreground: hsl(220, 30%, 25%);
+  --color-primary: hsl(220, 50%, 30%);
+  --color-primary-foreground: hsl(0, 0%, 100%);
+  --color-accent: hsl(38, 80%, 50%);
+  --color-muted: hsl(220, 15%, 50%);
+  --color-border: hsl(220, 20%, 80%);
+  --color-card: hsl(0, 0%, 100%);
+  
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', Arial, sans-serif;
+  
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+  
+  --radius: 0.5rem;
+  --transition: all 0.3s ease;
+}
+
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Menu Page */
+.menu-page {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+}
+
+/* Header */
+.menu-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.menu-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+
+/* Filter Navigation */
+.filter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  background-color: hsla(220, 50%, 30%, 0.1);
+  border-color: var(--color-primary);
+}
+
+
+
+/* Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Menu Card */
+.menu-card {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: transparent;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.menu-card:hover {
+  transform: scale(1.02);
+}
+
+.menu-card-image {
+  width: 128px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  flex-shrink: 0;
+}
+
+.menu-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.menu-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.menu-card-price {
+  font-weight: 700;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.menu-card-description {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .menu-title {
+    font-size: 2rem;
+  }
+  
+  .menu-card {
+    flex-direction: column;
+  }
+  
+  .menu-card-image {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+}
