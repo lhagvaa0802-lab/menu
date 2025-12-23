@@ -1,8 +1,4 @@
-/* =============================================
-   RESTAURANT MENU - CSS STYLES
-   ============================================= */
 
-/* CSS Variables / Design System */
 :root {
   --color-background: hsl(210, 25%, 96%);
   --color-foreground: hsl(220, 30%, 25%);
@@ -173,19 +169,8 @@ img {
   line-height: 1.5;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Responsive Adjustments */
+
 @media (max-width: 480px) {
   .menu-title {
     font-size: 2rem;
